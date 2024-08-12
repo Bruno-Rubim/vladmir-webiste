@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Vladmir's website</title>
+		<link href="/style.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime" rel="stylesheet" type="text/css" media="all">
+	</head>
+	<body class="bg">
+		<img src="images/eye.png" id="eye-img" hidden>
+		<div id="eye">
+			<canvas id="eye-canvas"></canvas>
+		</div>
+		<div class="sub-container">
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+			<div><img src="/images/drawing.png"></div>
+		</div>
+	</body>
+</html>
+<script>
+	const eyeCanvas = document.querySelector('#eye-canvas');
+	const ctx = eyeCanvas.getContext("2d");
+	const image = document.querySelector('#eye-img');
+	image.onload=function(){
+		ctx.drawImage(image, 0, 0, eyeCanvas.width, eyeCanvas.height);
+	};
+</script>
