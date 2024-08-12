@@ -1,4 +1,4 @@
-.bg {
+body {
     background-color: #40c082;
 }
 .main-container { 
@@ -10,7 +10,7 @@
 }
 
 .sub-container {
-    background-color: #f80;
+    background-color: #40c082;
     overflow: auto;
     text-align: center;
 
@@ -33,7 +33,7 @@
 
 #eye {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 25%;
     transform: translate(-50%, -50%);
 }
