@@ -9,6 +9,9 @@
 	</head>
 	<body class="bg">
 		<img src="images/eye.png" id="eye-img" hidden>
+		<img src="images/sclear.png" id="sclear-img" hidden>
+		<img src="images/iris.png" id="iris-img" hidden>
+		<img src="images/eye-cover-1.png" id="eye-cover-1" hidden>
 		<div id="eye">
 			<canvas id="eye-canvas"></canvas>
 		</div>
@@ -31,9 +34,12 @@
 </html>
 <script>
 	const eyeCanvas = document.querySelector('#eye-canvas');
+	eyeCanvas.width = 500;
+	eyeCanvas.height = 400;
 	const ctx = eyeCanvas.getContext("2d");
 	const image = document.querySelector('#eye-img');
-	image.onload=function(){
-		ctx.drawImage(image, 0, 0, eyeCanvas.width, eyeCanvas.height);
-	};
+	const sclera = document.querySelector('#sclera-img');
+	const iris = document.querySelector('#iris-img');
+	const eyeCover1 = document.querySelector('#eye-cover-1-img');
+	ctx.drawImage(image, 0, 0, eyeCanvas.width, eyeCanvas.height);
 </script>
