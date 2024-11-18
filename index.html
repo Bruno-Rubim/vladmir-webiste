@@ -6,109 +6,55 @@
 		<title>Vladmir's website</title>
 		<link href="/style.css" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime" rel="stylesheet" type="text/css" media="all">
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue" rel="stylesheet">
+	    <script type="module" src="main.js"></script>
+		<link rel="shortcut icon" href="/images/vlad-icon.png" type="image/x-icon" />
 	</head>
 	<body class="bg">
 		<img src="images/eye.png" id="eye-img" hidden>
 		<img src="images/sclera.png" id="sclera-img" hidden>
 		<img src="images/iris.png" id="iris-img" hidden>
+		<img src="images/mini-iris.png" id="mini-iris-img" hidden>
 		<img src="images/eye-cover-1.png" id="eye-cover-1-img" hidden>
 		<img src="images/eye-cover-2.png" id="eye-cover-2-img" hidden>
 		<img src="images/eye-cover-3.png" id="eye-cover-3-img" hidden>
 		<img src="images/chain.png" id="chain-img" hidden>
 		<div id="eye">
+			<div id="page-title">
+				<div class="heading" id="drawings-heading" hidden>
+					Drawings
+				</div>
+				<div class="heading" id="designs-heading" hidden>
+					Graphic Design
+				</div>
+			</div>
 			<canvas id="eye-canvas"></canvas>
+			<br>
+			<canvas id="chain-canvas"></canvas>
 		</div>
-		<div class="sub-container">
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
-			<div><img src="/images/drawing.png"></div>
+		<div id="right-section">
+			<div id="title">
+				<div class="heading">
+					Portfolio
+				</div>
+				<div id="name">
+					Vladimír Kubiš
+				</div>
+			</div>
+			<div class="sub-container" id="drawings" style="display: none;">
+				<div><img src="/drawings/1.png"></div>
+				<div><img src="/drawings/2.png"></div>
+				<div><img src="/drawings/3.png"></div>
+				<div><img src="/drawings/4.png"></div>
+				<div><img src="/drawings/5.png"></div>
+			</div>
+			<div class="sub-container" id="design" style="display: none;">
+				<div><img src="/drawings/6.png"></div>
+				<div><img src="/drawings/7.png"></div>
+				<div><img src="/drawings/8.png"></div>
+				<div><img src="/drawings/9.png"></div>
+				<div><img src="/drawings/10.png"></div>
+			</div>
 		</div>
 	</body>
 </html>
-<script>
-	const body = document.querySelector('body');
-	body.style.backgroundColor = '#40c082'
-	const eyeCanvas = document.querySelector('#eye-canvas');
-	eyeCanvas.width = 500;
-	eyeCanvas.height = 400;
-	const ctx = eyeCanvas.getContext("2d");
-	const image = document.querySelector('#eye-img');
-	const sclera = document.querySelector('#sclera-img');
-	const iris = document.querySelector('#iris-img');
-	const chain = document.querySelector('#chain-img');
-	const eyeCover1 = document.querySelector('#eye-cover-1-img');
-	const eyeCover2 = document.querySelector('#eye-cover-2-img');
-	const eyeCover3 = document.querySelector('#eye-cover-3-img');
-	let eyeCover = eyeCover1;
-	let currentPage = 'drawings'
-	const pageSwitch = () => {
-		console.log('page switch')
-		if (currentPage = 'drawings') {
-			currentPage = 'design';
-			body.style.backgroundColor = '#d560a4';
-			eyeCover = eyeCover3;
-			console.log('to ' + currentPage);
-			render();
-		} else {
-			currentPage = 'drawings';
-			body.style.backgroundColor = '#000';
-			eyeCover = eyeCover2;
-			console.log('to ' + currentPage);
-			render();
-		}
-	}
-	
-	eyeCanvas.onclick = () => {
-		body.style.backgroundColor = '#000';
-		currentPage = 'drawings';
-		eyeCanvas.onclick = pageSwitch;
-	}
-
-	function clearCanvas(){
-		ctx.fillStyle = document.querySelector('body').style.getPropertyValue('background-color'); 
-		ctx.fillRect(0, 0, eyeCanvas.width, eyeCanvas.height);
-	}
-
-	function firstRender(){
-		clearCanvas();
-		ctx.drawImage(sclera, 0, 0, eyeCanvas.width, eyeCanvas.height);
-		ctx.drawImage(iris, 0, 0, eyeCanvas.width, eyeCanvas.height);
-		ctx.drawImage(eyeCover, 0, 0, eyeCanvas.width, eyeCanvas.height);
-		console.log();
- 	}
-
-	function render(){
-		clearCanvas();
-		let irisX = (event.pageX / ((window.innerWidth/2) / 310)) -155;
-		let irisY = (event.pageY / ((window.innerHeight/1.2) / 150)) -75;
-		if (irisX > 155) {
-			irisX = 155;
-		}
-		if (irisX < -155) {
-			irisX = -155;
-		}
-		if (irisY > 75) {
-			irisY = 75;
-		}
-		if (irisY < -75) {
-			irisY = -75;
-		}
-		ctx.drawImage(sclera, 0, 0, eyeCanvas.width, eyeCanvas.height);
-		ctx.drawImage(iris, irisX, irisY, eyeCanvas.width, eyeCanvas.height);
-		ctx.drawImage(eyeCover, 0, 0, eyeCanvas.width, eyeCanvas.height);
-		console.log();
- 	}
-	window.addEventListener("mousemove", render, false);
-	firstRender();
-
-</script>
